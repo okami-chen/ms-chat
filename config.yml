@@ -1,0 +1,69 @@
+app:
+  name: chat
+  version: 1.0.0
+server:
+  # debug release test
+  model: release
+  port: 28888
+  cors: true
+  # 接口限流
+  rate:
+    enable: true
+    rate-num: 100
+  db-type: mysql
+  # 是否开启数据库表初始化
+  isInitTable: false
+  excel-dir: ./resource/excel/
+  tls:
+    enable: false
+    key-file: ./resource/default.key
+    cert-file: ./resource/default.pem
+
+jwt:
+  key: WPoyQT87KDhEbRitcCfOjUIGY6Jkgv5l
+  # 过期时间单位秒 7天
+  expire-time: 604800
+
+redis:
+  host: 192.168.3.10
+  port: 6379
+  password:
+  db: 0
+
+cache:
+  host: 192.168.3.10
+  port: 6379
+  password:
+  db: 1
+
+wechat:
+  miniprogram:
+    app_id: wx34add18602df3ca9
+    app_secret: c41ac1d60ab731e50200e27c83802c57
+    file: ./wechat.log
+    level: debug
+    http_debug: false
+    debug: true
+    aes_key: c41ac1d60ab731e50200e27c83802c57
+  official:
+    app_id: wx34add18602df3ca9
+    app_secret: c41ac1d60ab731e50200e27c83802c57
+  work:
+    app_id:
+    app_secret:
+    agent_id:
+    callback:
+
+mysql:
+  host: 192.168.3.10:3306
+  username: root
+  password: 123456
+  db-name: pandax
+  config: charset=utf8&loc=Local&parseTime=true
+
+log:
+   # 日志等级, trace, debug, info, warn, error, fatal
+  level: trace
+#  file:
+#     path: ./
+#     name: app.log
