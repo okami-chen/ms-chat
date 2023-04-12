@@ -30,7 +30,7 @@ jobs:
 
     - name: Get current date
       id: date
-      run: echo "::set-output name=today::$(date +'%y%m%d-%H%M%S')"
+      run: echo "::set-output name=today::$(date +'%Y%m%d%H%M')"
     # Login cn-hangzhou
     - name: Login Into HangZhou
       if: github.event_name != 'pull_request'

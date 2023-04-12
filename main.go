@@ -33,7 +33,7 @@ var rootCmd = &cobra.Command{
 			global.Db = dbGorm.GormInit()
 			initialize.InitTable()
 		} else {
-			global.Log.Panic("请配置config")
+			global.Log.Panic("配置文件不存在")
 		}
 		global.Cache = starter.NewCache()
 		global.Redis = starter.NewRedis()
