@@ -17,6 +17,7 @@ import (
 
 var (
 	configFile string
+	appEnv     string
 )
 
 var rootCmd = &cobra.Command{
@@ -25,11 +26,8 @@ var rootCmd = &cobra.Command{
 	PreRun: func(cmd *cobra.Command, args []string) {
 		if configFile != "" {
 			global.Conf = config.InitConfig(configFile)
-			global.Log = logger.InitLog(global.Conf.Log.File.GetFilename(), global.Conf.Log.Level)
+			global.Log = logger.InitLog(global.Conf.Log.File.GetFileName(), global.Conf.Log.Level)
 			dbGorm := starter.DbGorm{Type: global.Conf.Server.DbType}
-			dbGorm.Dsn = global.Conf.Mysql.Dsn()
-			dbGorm.MaxIdleConns = global.Conf.Mysql.MaxIdleConns
-			dbGorm.MaxOpenConns = global.Conf.Mysql.MaxOpenConns
 			global.Db = dbGorm.GormInit()
 			initialize.InitTable()
 		} else {
@@ -55,6 +53,7 @@ var rootCmd = &cobra.Command{
 }
 
 func init() {
+	rootCmd.Flags().StringVar(&appEnv, "env", getEnvStr("APP_ENV", ""), "app env.")
 	rootCmd.Flags().StringVar(&configFile, "config", getEnvStr("CONFIG", "./config.yml"), "config file path.")
 }
 

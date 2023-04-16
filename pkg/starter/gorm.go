@@ -2,6 +2,7 @@ package starter
 
 import (
 	"github.com/XM-GO/PandaKit/logger"
+	"github.com/okamin-chen/chat/pkg/global"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	gormlog "gorm.io/gorm/logger"
@@ -20,6 +21,9 @@ type DbGorm struct {
 }
 
 func (dg *DbGorm) GormInit() *gorm.DB {
+	dg.Dsn = global.Conf.Mysql.Dsn()
+	dg.MaxIdleConns = global.Conf.Mysql.MaxIdleConns
+	dg.MaxOpenConns = global.Conf.Mysql.MaxOpenConns
 	switch dg.Type {
 	default:
 		Db = dg.GormMysql()
@@ -50,5 +54,6 @@ func (dg *DbGorm) GormMysql() *gorm.DB {
 	sqlDB, _ := db.DB()
 	sqlDB.SetMaxIdleConns(dg.MaxIdleConns)
 	sqlDB.SetMaxOpenConns(dg.MaxOpenConns)
+	global.Log.Infoln("Mysql Init Success")
 	return db
 }

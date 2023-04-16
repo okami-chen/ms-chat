@@ -31,3 +31,6 @@ func (l *LogFile) GetFilename() string {
 
 	return path.Join(filepath, filename)
 }
+func (l *LogFile) GetFileName() string {
+	return l.GetFilename()
+}
