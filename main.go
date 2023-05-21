@@ -3,11 +3,11 @@ package main
 import (
 	"context"
 	"github.com/XM-GO/PandaKit/logger"
-	"github.com/okamin-chen/chat/pkg/config"
-	"github.com/okamin-chen/chat/pkg/global"
-	"github.com/okamin-chen/chat/pkg/initialize"
-	"github.com/okamin-chen/chat/pkg/starter"
-	"github.com/okamin-chen/chat/pkg/transport"
+	"github.com/okamin-chen/service/pkg/config"
+	"github.com/okamin-chen/service/pkg/global"
+	"github.com/okamin-chen/service/pkg/initialize"
+	"github.com/okamin-chen/service/pkg/starter"
+	"github.com/okamin-chen/service/pkg/transport"
 	"github.com/spf13/cobra"
 	"log"
 	"os"
@@ -24,15 +24,13 @@ var rootCmd = &cobra.Command{
 	Use:   "chat is the main component in the chat.",
 	Short: `chat is go gin frame`,
 	PreRun: func(cmd *cobra.Command, args []string) {
-		if configFile != "" {
-			global.Conf = config.InitConfig(configFile)
-			global.Log = logger.InitLog(global.Conf.Log.File.GetFileName(), global.Conf.Log.Level)
-			dbGorm := starter.DbGorm{Type: global.Conf.Server.DbType}
-			global.Db = dbGorm.GormInit()
-			initialize.InitTable()
-		} else {
+		if configFile == "" {
 			global.Log.Panic("配置文件不存在")
 		}
+		global.Conf = config.InitConfig(configFile)
+		global.Log = logger.InitLog(global.Conf.Log.File.GetFileName(), global.Conf.Log.Level)
+		global.Db = starter.NewGorm()
+		initialize.InitTable()
 		global.Cache = starter.NewCache()
 		global.Redis = starter.NewRedis()
 		global.Lock = starter.NewLock()

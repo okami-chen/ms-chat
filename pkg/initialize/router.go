@@ -2,9 +2,9 @@ package initialize
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/okamin-chen/chat/app/controller"
-	"github.com/okamin-chen/chat/app/middleware"
-	"github.com/okamin-chen/chat/pkg/global"
+	"github.com/okamin-chen/service/app/controller"
+	"github.com/okamin-chen/service/app/middleware"
+	"github.com/okamin-chen/service/pkg/global"
 )
 
 func InitRouter() *gin.Engine {

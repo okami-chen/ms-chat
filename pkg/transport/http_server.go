@@ -2,8 +2,8 @@ package transport
 
 import (
 	"context"
-	"github.com/okamin-chen/chat/pkg/global"
-	"github.com/okamin-chen/chat/pkg/initialize"
+	"github.com/okamin-chen/service/pkg/global"
+	"github.com/okamin-chen/service/pkg/initialize"
 	"net/http"
 )
 

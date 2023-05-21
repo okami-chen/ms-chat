@@ -2,7 +2,7 @@ package services
 
 import (
 	"github.com/XM-GO/PandaKit/biz"
-	"github.com/okamin-chen/chat/app/entity"
+	"github.com/okamin-chen/service/app/entity"
 	"gorm.io/gorm"
 )
 

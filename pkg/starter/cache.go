@@ -2,7 +2,7 @@ package starter
 
 import (
 	"context"
-	"github.com/okamin-chen/chat/pkg/global"
+	"github.com/okamin-chen/service/pkg/global"
 	"github.com/redis/go-redis/v9"
 )
 
@@ -19,6 +19,6 @@ func NewCache() *redis.Client {
 		global.Log.Panic("Redis Init Fail")
 		return nil
 	}
-	global.Log.Infoln("Cache Init Success")
+	global.Log.Debugln("Cache Init Success")
 	return rdb
 }

@@ -2,7 +2,7 @@ package starter
 
 import (
 	"github.com/XM-GO/PandaKit/logger"
-	"github.com/okamin-chen/chat/pkg/global"
+	"github.com/okamin-chen/service/pkg/global"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	gormlog "gorm.io/gorm/logger"
@@ -18,6 +18,11 @@ type DbGorm struct {
 	Dsn          string
 	MaxIdleConns int
 	MaxOpenConns int
+}
+
+func NewGorm() *gorm.DB {
+	gorm := &DbGorm{Type: "mysql"}
+	return gorm.GormInit()
 }
 
 func (dg *DbGorm) GormInit() *gorm.DB {

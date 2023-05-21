@@ -2,7 +2,7 @@ package middleware
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/okamin-chen/chat/pkg/global"
+	"github.com/okamin-chen/service/pkg/global"
 	"net/http"
 	"strings"
 )

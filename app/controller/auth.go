@@ -4,8 +4,8 @@ import (
 	"context"
 	"github.com/gin-gonic/gin"
 	"github.com/golang-jwt/jwt/v5"
-	"github.com/okamin-chen/chat/pkg/config"
-	"github.com/okamin-chen/chat/pkg/global"
+	"github.com/okamin-chen/service/pkg/config"
+	"github.com/okamin-chen/service/pkg/global"
 	"net/http"
 	"reflect"
 )

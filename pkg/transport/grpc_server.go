@@ -3,7 +3,7 @@ package transport
 import (
 	"context"
 	"fmt"
-	"github.com/okamin-chen/chat/pkg/global"
+	"github.com/okamin-chen/service/pkg/global"
 	"google.golang.org/grpc"
 	"net"
 )

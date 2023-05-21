@@ -3,7 +3,7 @@ app:
   version: 1.0.0
 server:
   # debug release test
-  model: release
+  model: debug
   port: 28888
   cors: true
   # 接口限流

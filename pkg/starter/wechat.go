@@ -3,7 +3,7 @@ package starter
 import (
 	"github.com/ArtisanCloud/PowerWeChat/v3/src/kernel"
 	"github.com/ArtisanCloud/PowerWeChat/v3/src/miniProgram"
-	"github.com/okamin-chen/chat/pkg/global"
+	"github.com/okamin-chen/service/pkg/global"
 )
 
 func NewWechatMiniProgram() *miniProgram.MiniProgram {

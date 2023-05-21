@@ -2,7 +2,7 @@ package initialize
 
 import (
 	"github.com/XM-GO/PandaKit/biz"
-	"github.com/okamin-chen/chat/pkg/global"
+	"github.com/okamin-chen/service/pkg/global"
 )
 
 // 初始化时如果没有表创建表
